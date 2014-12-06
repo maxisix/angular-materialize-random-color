@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angular Materialize Color Inspiration</title>
+    <meta name="description" content="">
+    <meta name="keywords" content=""/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- FB OPEN GRAPH -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:description" content="" />
+    <meta property="og:type" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="fb:admins" content=""/>
+
+
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+
+    <style>
+
+        html {
+            background-color: #fcfcfc;
+        }
+
+        .color-palette {
+            height: 100px;
+            width: 50%;
+            float: left;
+        }
+
+
+        header {
+            margin: 25px 0;
+            padding-bottom: 25px;
+            border-bottom: 1px dotted #AAB2BD;
+        }
+
+        header h1 {
+            font-weight: 200;
+            font-size: 3em;
+            color: #656D78;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+    </style>
+
+
+
+
+</head>
+<body>
+
+    <div class="container">
+
+
+        <header>
+            <h1>Color Inspiration</h1>
+        </header>
+
+
+        <div class="row">
+
+            <div class="col s12 m3">
+                <div class="card">
+                    <div class="card-image">
+                        <section id="random-primary" class="color-palette"></section>
+                        <section id="random-secondary" class="color-palette lighten-2"></section>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <span>#009688</span>
+                        <span>#009688</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card">
+                    <div class="card-image">
+                        <section class="color-palette blue"></section>
+                        <section class="color-palette red lighten-2"></section>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <span>#009688</span>
+                        <span>#009688</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card">
+                    <div class="card-image">
+                        <section class="color-palette purple"></section>
+                        <section class="color-palette lime lighten-2"></section>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <span>#009688</span>
+                        <span>#009688</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card">
+                    <div class="card-image">
+                        <section class="color-palette blue"></section>
+                        <section class="color-palette brown lighten-2"></section>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <span>#009688</span>
+                        <span>#009688</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script>
+
+    var colors = [
+        "red",
+        "pink",
+        "purple",
+        "deep-purple",
+        "indigo",
+        "blue",
+        "light-blue",
+        "cyan",
+        "teal",
+        "green",
+        "light-green",
+        "lime",
+        "yellow",
+        "amber",
+        "orange",
+        "deep-orange",
+        "brown",
+        "grey",
+        "blue-grey"
+    ],
+
+        random1 = Math.floor((Math.random() * 19)),
+        random2 = Math.floor((Math.random() * 19));
+
+
+
+        var random_primary = document.getElementById('random-primary');
+        var random_secondary = document.getElementById('random-secondary');
+
+
+        random_primary.classList.add(colors[random1]);
+        random_secondary.classList.add(colors[random2]);
+
+    </script>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/materialize.js"></script>
+</body>
+</html>
