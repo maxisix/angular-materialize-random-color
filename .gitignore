@@ -3,7 +3,9 @@
 node_modules/
 .sass-cache/
 
-
+# Compiled Files #
+######################
+scripts.min.js
 
 # Logs #
 ######################
