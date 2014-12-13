@@ -46,8 +46,8 @@
                         <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                     </div>
                     <div class="card-action card-random-action clearfix">
-                        <a class="waves-effect waves-light card-btn"><i class="mdi-navigation-close discard"></i></a>
-                        <a class="waves-effect waves-light card-btn"><i class="mdi-action-done save"></i></a>
+                        <a class="waves-effect waves-light card-btn" ng-click="random()"><i class="mdi-navigation-close discard"></i></a>
+                        <a class="waves-effect waves-light card-btn" ng-click="save()"><i class="mdi-action-done save"></i></a>
 <!--                         <span>mdi-content-save</span>
                         <span>mdi-navigation-refresh</span>
                         <span>mdi-action-delete</span>
@@ -57,45 +57,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col s12 m3">
-                <div class="card">
-                    <div class="card-image">
-                        <section class="color-palette blue"></section>
-                        <section class="color-palette red lighten-2"></section>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action card-saved-action clearfix">
-                        <a class="waves-effect waves-light card-btn"><i class="mdi-action-delete delete"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m3">
-                <div class="card">
-                    <div class="card-image">
-                        <section class="color-palette purple"></section>
-                        <section class="color-palette lime lighten-2"></section>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                     <div class="card-action card-saved-action clearfix">
-                        <a class="waves-effect waves-light card-btn"><i class="mdi-action-delete delete"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m3">
-                <div class="card">
-                    <div class="card-image">
-                        <section class="color-palette blue"></section>
-                        <section class="color-palette brown lighten-2"></section>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                     <div class="card-action card-saved-action clearfix">
-                        <a class="waves-effect waves-light card-btn"><i class="mdi-action-delete delete"></i></a>
+            <div ng-repeat="color in colors">
+                <div class="col s12 m3">
+                    <div class="card">
+                        <div class="card-image">
+                            <section class="color-palette {{color.primary}}"></section>
+                            <section class="color-palette {{color.secondary}} lighten-2"></section>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action card-saved-action clearfix">
+                            <a class="waves-effect waves-light card-btn"><i class="mdi-action-delete delete"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
