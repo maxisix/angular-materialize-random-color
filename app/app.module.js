@@ -31,25 +31,31 @@ var app = angular.module('MaterialColor', []);
 			getRandomColor: function() {
 				// function to get random colors				
 				
-				//generate new random colors
-				random1 = Math.floor((Math.random() * 19)),
-				random2 = Math.floor((Math.random() * 19));
+				//generate new random colors in array
+				var random = new Array();
+					random['random1'] = Math.floor((Math.random() * 19));
+					random['random2'] = Math.floor((Math.random() * 19));
+
+				return random;
+			},
+			changeRandomColor: function() {
+				// function to change value of random colors
 
 				//get old elements
 				var random_primary = $('#random-primary');
 				var random_secondary = $('#random-secondary');
+				var newRandomColors = factory.getRandomColor();
 
 				// remove old colors classes and add news && adjust data color
 				random_primary
 					.removeClass( random_primary.data('data_primary_rand') )
-					.addClass( factory.colors[random1])
-					.data('data_primary_rand', factory.colors[random1]); 
+					.addClass( factory.colors[newRandomColors['random1']] )
+					.data('data_primary_rand', factory.colors[newRandomColors['random1']] ); 
 
 				random_secondary
 					.removeClass( random_secondary.data('data_secondary_rand') )
-					.addClass( factory.colors[random2] )
-					.data('data_secondary_rand', factory.colors[random2]);
-				
+					.addClass( factory.colors[newRandomColors['random2']] )
+					.data('data_secondary_rand', factory.colors[newRandomColors['random2']] );
 
 				return true;
 			},
@@ -117,7 +123,14 @@ var app = angular.module('MaterialColor', []);
 	} );
 
 	app.controller( 'ColorsCtrl', function($scope, ColorFactory, UserFactory) {
-		$scope.colors = UserFactory.getColorSaved();
+
+		//init function (get user color && generate one random combination)
+		$scope.init = function() {
+			var colorSaved = UserFactory.getColorSaved();
+			ColorFactory.getRandomColor();
+			console.log(colorSaved);
+		}
+		$scope.colors = $scope.init();
 
 		$scope.save = function() {
 			//save colors in user preferences
@@ -128,7 +141,6 @@ var app = angular.module('MaterialColor', []);
 		}
 
 		$scope.random = function() {
-			var news = ColorFactory.getRandomColor();
-			console.log( news );
+			var news = ColorFactory.changeRandomColor();
 		}
 	} );
