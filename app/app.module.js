@@ -43,6 +43,7 @@ var app = angular.module('MaterialColor', []);
 
 				//get old elements
 				var random_primary = $('#random-primary');
+				// console.log(random_primary.data('data_primary_rand') );
 				var random_secondary = $('#random-secondary');
 				var newRandomColors = factory.getRandomColor();
 
@@ -126,12 +127,17 @@ var app = angular.module('MaterialColor', []);
 
 		//init function (get user color && generate one random combination)
 		$scope.init = function() {
-			var colorSaved = UserFactory.getColorSaved();
+			var colors = UserFactory.getColorSaved();
 			var colorRandom = ColorFactory.getRandomColor();
-			console.log(colorSaved);
-			console.log(colorRandom);
+			colors.push( {
+				id: -1,
+				primary:colorRandom['random1'],
+				secondary:colorRandom['random2'],
+				saved:false
+			} );
+
+			return colors;
 		}
-		$scope.colors = $scope.init();
 
 		$scope.save = function() {
 			//save colors in user preferences
@@ -144,4 +150,6 @@ var app = angular.module('MaterialColor', []);
 		$scope.random = function() {
 			var news = ColorFactory.changeRandomColor();
 		}
+
+		$scope.colors = $scope.init();
 	} );
