@@ -32,6 +32,10 @@
     @extend .green-text;
 }
 
+.delete {
+    @extend .grey-text;
+}
+
 .card-saved-action > a {
     width: 100%;
 }
