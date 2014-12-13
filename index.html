@@ -1,130 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Angular Materialize Color Inspiration</title>
-    <meta name="description" content="">
-    <meta name="keywords" content=""/>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Angular Materialize Color Inspiration</title>
+	<meta name="description" content="">
+	<meta name="keywords" content=""/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 
-    <!-- FB OPEN GRAPH -->
-    <meta property="og:title" content=""/>
-    <meta property="og:image" content=""/>
-    <meta property="og:description" content="" />
-    <meta property="og:type" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:site_name" content=""/>
-    <meta property="fb:admins" content=""/>
+	<!-- FB OPEN GRAPH -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:description" content="" />
+	<meta property="og:type" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="fb:admins" content=""/>
 
 
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
 </head>
 <body ng-app="MaterialColor">
 
-    <div class="container" ng-controller="ColorsCtrl">
+	<div class="container" ng-controller="ColorsCtrl">
 
 
-        <header>
-            <h1>Color Inspiration</h1>
-        </header>
+		<header>
+			<h1>Color Inspiration</h1>
+		</header>
 
 
-        <div class="row">
+		<div class="row">
 
-            <div class="col s12 m3">
-                <div class="card">
-                    <div class="card-image">
-                        <section id="random-primary" class="color-palette"></section>
-                        <section id="random-secondary" class="color-palette lighten-2"></section>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action card-random-action clearfix">
-                        <a class="waves-effect waves-light card-btn" ng-click="random()"><i class="mdi-navigation-close discard"></i></a>
-                        <a class="waves-effect waves-light card-btn" ng-click="save()"><i class="mdi-action-done save"></i></a>
+			<div class="col s12 m3">
+				<div class="card">
+					<div class="card-image">
+						<section id="random-primary" class="color-palette" data_primary_rand="" ></section>
+						<section id="random-secondary" class="color-palette lighten-2" data_secondary_rand=""></section>
+					</div>
+					<div class="card-content">
+						<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+					</div>
+					<div class="card-action card-random-action clearfix">
+						<a class="waves-effect waves-light card-btn" ng-click="random()"><i class="mdi-navigation-close discard"></i></a>
+						<a class="waves-effect waves-light card-btn" ng-click="save()"><i class="mdi-action-done save"></i></a>
 <!--                         <span>mdi-content-save</span>
-                        <span>mdi-navigation-refresh</span>
-                        <span>mdi-action-delete</span>
-                        <span>mdi-action-done</span>
-                        <span>mdi-navigation-close</span> -->
+						<span>mdi-navigation-refresh</span>
+						<span>mdi-action-delete</span>
+						<span>mdi-action-done</span>
+						<span>mdi-navigation-close</span> -->
 
-                    </div>
-                </div>
-            </div>
-            <div ng-repeat="color in colors">
-                <div class="col s12 m3">
-                    <div class="card">
-                        <div class="card-image">
-                            <section class="color-palette {{color.primary}}"></section>
-                            <section class="color-palette {{color.secondary}} lighten-2"></section>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div class="card-action card-saved-action clearfix">
-                            <a class="waves-effect waves-light card-btn"><i class="mdi-action-delete delete"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+					</div>
+				</div>
+			</div>
+			<div ng-repeat="color in colors">
+				<div class="col s12 m3">
+					<div class="card">
+						<div class="card-image">
+							<section class="color-palette {{color.primary}}"></section>
+							<section class="color-palette {{color.secondary}} lighten-2"></section>
+						</div>
+						<div class="card-content">
+							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+						</div>
+						<div class="card-action card-saved-action clearfix">
+							<a class="waves-effect waves-light card-btn"><i class="mdi-action-delete delete"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        </div>
-
-
-    </div>
+		</div>
 
 
+	</div>
 
 
 
-    <script>
-
-    var colors = [
-        "red",
-        "pink",
-        "purple",
-        "deep-purple",
-        "indigo",
-        "blue",
-        "light-blue",
-        "cyan",
-        "teal",
-        "green",
-        "light-green",
-        "lime",
-        "yellow",
-        "amber",
-        "orange",
-        "deep-orange",
-        "brown",
-        "grey",
-        "blue-grey"
-    ],
-
-        random1 = Math.floor((Math.random() * 19)),
-        random2 = Math.floor((Math.random() * 19));
 
 
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>
 
-        var random_primary = document.getElementById('random-primary');
-        var random_secondary = document.getElementById('random-secondary');
+	var colors = [
+		"red",
+		"pink",
+		"purple",
+		"deep-purple",
+		"indigo",
+		"blue",
+		"light-blue",
+		"cyan",
+		"teal",
+		"green",
+		"light-green",
+		"lime",
+		"yellow",
+		"amber",
+		"orange",
+		"deep-orange",
+		"brown",
+		"grey",
+		"blue-grey"
+	],
+
+		random1 = Math.floor((Math.random() * 19)),
+		random2 = Math.floor((Math.random() * 19));
+
+		var random_primary = $('#random-primary');
+		var random_secondary = $('#random-secondary');
+
+		random_primary
+			.addClass( colors[random1] )
+			.data('data_primary_rand', colors[random1] ); 
+
+		random_secondary
+			.addClass( colors[random2] )
+			.data('data_secondary_rand', colors[random2] );
+
+	</script>
 
 
-        random_primary.classList.add(colors[random1]);
-        random_secondary.classList.add(colors[random2]);
-
-    </script>
-
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/materialize.js"></script>
-    <script type="text/javascript" src="app/scripts.min.js"></script>
+	<script type="text/javascript" src="assets/js/materialize.js"></script>
+	<script type="text/javascript" src="app/scripts.min.js"></script>
 
 
 </body>

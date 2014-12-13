@@ -29,21 +29,29 @@ var app = angular.module('MaterialColor', []);
 				"blue-grey"
 			],
 			getRandomColor: function() {
-				// function to get random colors
-				var news = new Array;
+				// function to get random colors				
 				
+				//generate new random colors
 				random1 = Math.floor((Math.random() * 19)),
 				random2 = Math.floor((Math.random() * 19));
 
-				// var random_primary = document.getElementById('random-primary');
-				// var random_secondary = document.getElementById('random-secondary');
+				//get old elements
+				var random_primary = $('#random-primary');
+				var random_secondary = $('#random-secondary');
 
-				news['primary'] = factory.colors[random1];
-				news['secondary'] = factory.colors[random2];
-				// random_primary.classList.add(factory.colors[random1]);
-				// random_secondary.classList.add(factory.colors[random2]);
+				// remove old colors classes and add news && adjust data color
+				random_primary
+					.removeClass( random_primary.data('data_primary_rand') )
+					.addClass( factory.colors[random1])
+					.data('data_primary_rand', factory.colors[random1]); 
 
-				return news;
+				random_secondary
+					.removeClass( random_secondary.data('data_secondary_rand') )
+					.addClass( factory.colors[random2] )
+					.data('data_secondary_rand', factory.colors[random2]);
+				
+
+				return true;
 			},
 			copyColor: function(id) {
 				// function to copy color in clipboard
@@ -62,26 +70,41 @@ var app = angular.module('MaterialColor', []);
 				{
 					"id": 0,
 					"primary": "blue",
-					"secondary": "red"
+					"secondary": "red",
+					"saved": true //add show difference with random colors 
 				},
 				{
 					"id": 1,
 					"primary": "purple",
-					"secondary": "lime"
+					"secondary": "lime",
+					"saved": true
 				},
 				{
 					"id": 2,
 					"primary": "blue",
-					"secondary": "brown"
+					"secondary": "brown",
+					"saved": true
 				}
 			],
+			getLastId: function() {
+				// temporary function returning the tallest color id (pending databse)
+				var lastId = 0;
+				angular.forEach( factory.colors, function(value, key) {
+					if( value.id > lastId ) {
+						lastId = value.id;
+					}
+				} );
+				return lastId;
+			},
 			getColorSaved: function() {
 				// return color saved by user 
 				return factory.colors;
 			},
-			saveColor: function(news) {
+			saveColor: function( primary, secondary ) {
 				// function to save colors in user preferences
-				return false;
+				var lastId = factory.getLastId();
+				factory.colors.push( { id: lastId + 1, primary:primary, secondary:secondary, saved:true } );
+				return true;
 			},
 			removeColor: function(id) {
 				// function to remove colors from user preferences
@@ -98,7 +121,10 @@ var app = angular.module('MaterialColor', []);
 
 		$scope.save = function() {
 			//save colors in user preferences
-			UserFactory.saveColor(news);
+			UserFactory.saveColor(
+				$('#random-primary').data('data_primary_rand'),
+				$('#random-secondary').data('data_secondary_rand')
+			);
 		}
 
 		$scope.random = function() {
