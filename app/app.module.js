@@ -33,8 +33,8 @@ var app = angular.module('MaterialColor', []);
 				
 				//generate new random colors in array
 				var random = new Array();
-					random['random1'] = Math.floor((Math.random() * 19));
-					random['random2'] = Math.floor((Math.random() * 19));
+					random['random1'] = factory.colors[ Math.floor((Math.random() * 19)) ];
+					random['random2'] = factory.colors[ Math.floor((Math.random() * 19)) ];
 
 				return random;
 			},
@@ -49,13 +49,13 @@ var app = angular.module('MaterialColor', []);
 				// remove old colors classes and add news && adjust data color
 				random_primary
 					.removeClass( random_primary.data('data_primary_rand') )
-					.addClass( factory.colors[newRandomColors['random1']] )
-					.data('data_primary_rand', factory.colors[newRandomColors['random1']] ); 
+					.addClass( newRandomColors['random1'] )
+					.data('data_primary_rand', newRandomColors['random1'] ); 
 
 				random_secondary
 					.removeClass( random_secondary.data('data_secondary_rand') )
-					.addClass( factory.colors[newRandomColors['random2']] )
-					.data('data_secondary_rand', factory.colors[newRandomColors['random2']] );
+					.addClass( newRandomColors['random2'] )
+					.data('data_secondary_rand', newRandomColors['random2'] );
 
 				return true;
 			},
@@ -127,8 +127,9 @@ var app = angular.module('MaterialColor', []);
 		//init function (get user color && generate one random combination)
 		$scope.init = function() {
 			var colorSaved = UserFactory.getColorSaved();
-			ColorFactory.getRandomColor();
+			var colorRandom = ColorFactory.getRandomColor();
 			console.log(colorSaved);
+			console.log(colorRandom);
 		}
 		$scope.colors = $scope.init();
 
