@@ -140,10 +140,15 @@ var app = angular.module('MaterialColor', []);
 
 		$scope.save = function() {
 			//save colors in user preferences
-			UserFactory.saveColor(
+			var saved = UserFactory.saveColor(
 				$('#random-primary').data('primary_rand'),
 				$('#random-secondary').data('secondary_rand')
 			);
+
+			if( saved ) {
+				ColorFactory.changeRandomColor();
+			}
+
 		}
 
 		$scope.random = function() {
