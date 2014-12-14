@@ -43,20 +43,19 @@ var app = angular.module('MaterialColor', []);
 
 				//get old elements
 				var random_primary = $('#random-primary');
-				// console.log(random_primary.data('data_primary_rand') );
 				var random_secondary = $('#random-secondary');
 				var newRandomColors = factory.getRandomColor();
 
 				// remove old colors classes and add news && adjust data color
 				random_primary
-					.removeClass( random_primary.data('data_primary_rand') )
+					.removeClass( random_primary.data('primary_rand') )
 					.addClass( newRandomColors['random1'] )
-					.data('data_primary_rand', newRandomColors['random1'] ); 
+					.data('primary_rand', newRandomColors['random1'] ); 
 
 				random_secondary
-					.removeClass( random_secondary.data('data_secondary_rand') )
+					.removeClass( random_secondary.data('secondary_rand') )
 					.addClass( newRandomColors['random2'] )
-					.data('data_secondary_rand', newRandomColors['random2'] );
+					.data('secondary_rand', newRandomColors['random2'] );
 
 				return true;
 			},
@@ -142,8 +141,8 @@ var app = angular.module('MaterialColor', []);
 		$scope.save = function() {
 			//save colors in user preferences
 			UserFactory.saveColor(
-				$('#random-primary').data('data_primary_rand'),
-				$('#random-secondary').data('data_secondary_rand')
+				$('#random-primary').data('primary_rand'),
+				$('#random-secondary').data('secondary_rand')
 			);
 		}
 
