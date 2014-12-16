@@ -114,7 +114,13 @@ var app = angular.module('MaterialColor', []);
 			},
 			removeColor: function(id) {
 				// function to remove colors from user preferences
-				return false;
+				angular.forEach( factory.colors, function(value, key) {
+					if( value.id == id ) {
+						factory.colors.splice(key, 1);
+					}
+				} );
+				
+				return true;
 			}
 
 		}
@@ -153,6 +159,10 @@ var app = angular.module('MaterialColor', []);
 
 		$scope.random = function() {
 			var news = ColorFactory.changeRandomColor();
+		}
+
+		$scope.delete = function(id) {
+			var isDeleted = UserFactory.removeColor(id);
 		}
 
 		$scope.colors = $scope.init();
