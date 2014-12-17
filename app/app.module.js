@@ -76,20 +76,17 @@ var app = angular.module('MaterialColor', []);
 				{
 					"id": 0,
 					"primary": "blue",
-					"secondary": "red",
-					"saved": true //add show difference with random colors 
+					"secondary": "red"
 				},
 				{
 					"id": 1,
 					"primary": "purple",
-					"secondary": "lime",
-					"saved": true
+					"secondary": "lime"
 				},
 				{
 					"id": 2,
 					"primary": "blue",
-					"secondary": "brown",
-					"saved": true
+					"secondary": "brown"
 				}
 			],
 			getLastId: function() {
@@ -137,8 +134,7 @@ var app = angular.module('MaterialColor', []);
 			colors.push( {
 				id: -1,
 				primary:colorRandom['random1'],
-				secondary:colorRandom['random2'],
-				saved:false
+				secondary:colorRandom['random2']
 			} );
 
 			return colors;
