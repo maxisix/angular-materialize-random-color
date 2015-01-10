@@ -37,7 +37,7 @@
 		<div class="row">
 
 			<div ng-repeat="color in colors | orderBy:'id' ">
-				<div class="col s12 m3" ng-switch on="color.id">
+				<div ng-class="(color.id == -1) ? 'icon-col s3 m3' : 'col s12 m3'" ng-switch on="color.id">
 					<div class="card">
 						<div class="card-image" ng-switch-when="-1">
 							<section id="random-primary" class="color-palette {{color.primary}}" data-primary_rand="{{color.primary}}" >
