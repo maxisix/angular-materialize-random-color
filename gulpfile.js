@@ -158,7 +158,7 @@ gulp.task('svgstore', function() {
 DEFAULT TASK
 *******************************************************************************/
 
-gulp.task('default', ['styles','scripts','images'], function() {
+gulp.task('default', ['styles','angularJS','images'], function() {
 
 });
 

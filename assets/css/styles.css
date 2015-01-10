@@ -8106,6 +8106,8 @@ header h1 {
   height: 100px;
   width: 50%;
   float: left;
+  position: relative;
+  text-transform: uppercase;
 }
 
 .card .card-random-action,
@@ -8130,6 +8132,23 @@ header h1 {
 
 .card-saved-action>a {
   width: 100%;
+}
+
+.color-name,
+.color-hexa {
+  margin: 0;
+  position: absolute;
+  color: #ffffff;
+}
+
+.color-name {
+  top: 10px;
+  left: 10px;
+}
+
+.color-hexa {
+  bottom: 10px;
+  right: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */

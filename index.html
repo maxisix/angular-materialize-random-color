@@ -40,16 +40,18 @@
 				<div class="col s12 m3" ng-switch on="color.id">
 					<div class="card">
 						<div class="card-image" ng-switch-when="-1">
-							<section id="random-primary" class="color-palette {{color.primary}}" data-primary_rand="{{color.primary}}" ></section>
-							<section id="random-secondary" class="color-palette {{color.secondary}} lighten-2" data-secondary_rand="{{color.secondary}}"></section>
+							<section id="random-primary" class="color-palette {{color.primary}}" data-primary_rand="{{color.primary}}" >
+								<p class="color-name">{{color.primary}}</p>
+								<p class="color-hexa">#FFFFFF</p>
+							</section>
+							<section id="random-secondary" class="color-palette {{color.secondary}} lighten-2" data-secondary_rand="{{color.secondary}}">
+								<p class="color-name">{{color.secondary}}</p>
+								<p class="color-hexa">#FFFFFF</p>
+							</section>
 						</div>
 						<div class="card-image" ng-switch-default>
 							<section class="color-palette {{color.primary}}"></section>
 							<section class="color-palette {{color.secondary}} lighten-2"></section>
-						</div>
-
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
 						</div>
 
 						<div ng-switch-when="-1" class="card-action card-random-action clearfix">
