@@ -50,8 +50,14 @@
 							</section>
 						</div>
 						<div class="card-image" ng-switch-default>
-							<section class="color-palette {{color.primary}}"></section>
-							<section class="color-palette {{color.secondary}} lighten-2"></section>
+							<section class="color-palette {{color.primary}}">
+								<p class="color-name">{{color.primary}}</p>
+								<p class="color-hexa">#FFFFFF</p>
+							</section>
+							<section class="color-palette {{color.secondary}} lighten-2">
+								<p class="color-name">{{color.secondary}}</p>
+								<p class="color-hexa">#FFFFFF</p>
+							</section>
 						</div>
 
 						<div ng-switch-when="-1" class="card-action card-random-action clearfix">
